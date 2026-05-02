@@ -1,4 +1,5 @@
 ---
+description: Security guidelines — secret management, input validation, OWASP checks
 applyTo: "**/*"
 ---
 # Security Guidelines

@@ -1,4 +1,5 @@
 ---
+description: Testing requirements — 80% coverage, TDD workflow, unit/integration/E2E
 applyTo: "**/*"
 ---
 # Testing Requirements

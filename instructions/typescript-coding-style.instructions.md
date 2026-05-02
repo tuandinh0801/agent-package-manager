@@ -1,9 +1,6 @@
 ---
-applyTo:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+description: TypeScript/JavaScript coding style — strict types, no any, Zod validation, React props
+applyTo: "**/*.ts,**/*.tsx,**/*.js,**/*.jsx"
 ---
 # TypeScript/JavaScript Coding Style
 

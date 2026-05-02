@@ -1,4 +1,5 @@
 ---
+description: Common design patterns — repository pattern, API response envelope, skeleton projects
 applyTo: "**/*"
 ---
 # Common Patterns

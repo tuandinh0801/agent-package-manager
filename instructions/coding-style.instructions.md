@@ -1,4 +1,5 @@
 ---
+description: Core coding style rules — immutability, file organization, error handling, input validation
 applyTo: "**/*"
 ---
 # Coding Style

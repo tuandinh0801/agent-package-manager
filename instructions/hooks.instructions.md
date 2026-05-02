@@ -1,4 +1,5 @@
 ---
+description: TodoWrite best practices for progress tracking
 applyTo: "**/*"
 ---
 # Hooks System

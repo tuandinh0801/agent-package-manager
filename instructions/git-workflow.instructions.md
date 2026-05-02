@@ -1,4 +1,5 @@
 ---
+description: Git commit message format using conventional commits
 applyTo: "**/*"
 ---
 # Git Workflow

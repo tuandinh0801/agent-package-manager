@@ -1,7 +1,6 @@
 ---
-applyTo:
-  - "**/*.py"
-  - "**/*.pyi"
+description: Python coding style — PEP 8, type annotations, frozen dataclasses, black/ruff
+applyTo: "**/*.py"
 ---
 # Python Coding Style
 
