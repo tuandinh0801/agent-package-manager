@@ -14,7 +14,7 @@ dependencies:
     # Development workflows (TDD, debugging, brainstorming, verification)
     - obra/superpowers
     # Security rule enforcement engine
-    - adrozdenko/hookify-plus
+    - tuandinh0801/hookify-plus
     # Structured PR review
     - anthropics/claude-plugins-official/plugins/pr-review-toolkit
     # UI/UX design polish and critique
