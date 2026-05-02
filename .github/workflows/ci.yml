@@ -1,0 +1,28 @@
+name: APM CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install APM packages
+        uses: microsoft/apm-action@v1
+
+      - name: Validate primitives
+        run: apm compile --validate
+
+      - name: Audit (lockfile integrity + hidden chars)
+        run: apm audit --ci
+
+      - name: Check compiled output drift
+        run: |
+          apm compile
+          if [ -n "$(git status --porcelain -- AGENTS.md CLAUDE.md GEMINI.md)" ]; then
+            echo "::error::Compiled output out of date. Run 'apm compile' and commit."
+            exit 1
+          fi
