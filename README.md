@@ -11,11 +11,19 @@ Shared AI development environment for the team — coding standards, security ru
 
 ### Install
 
+**Option A: Per-project** (adds to your project's `apm.yml`)
+
 ```bash
-# In your project directory
 apm install tuandinh0801/agent-package-manager
-apm compile
 ```
+
+**Option B: Global** (available across all your projects)
+
+```bash
+apm install -g tuandinh0801/agent-package-manager
+```
+
+That's it. APM fetches the package, resolves all 7 plugin dependencies, and deploys skills/rules/instructions into your agent's config directory automatically. No cloning, no compile step needed.
 
 This gives you:
 - 7 plugin dependencies (auto-installed)
