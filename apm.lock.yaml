@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-05-02T06:24:44.557207+00:00'
+generated_at: '2026-05-02T06:30:49.310121+00:00'
 apm_version: 0.11.0
 dependencies:
 - repo_url: JuliusBrussee/caveman
@@ -91,10 +91,9 @@ dependencies:
   content_hash: sha256:f77bf24297cc9c1477fce907d0211edc0a524b297e522649e1dcb47209071efd
 - repo_url: tuandinh0801/hookify-plus
   host: github.com
-  resolved_commit: 9a06eccef3dd615864c61e26fafa4077da1a2f65
+  resolved_commit: 48a8b31d7ebbe7698e8c52995636a3aa427e1acf
   package_type: marketplace_plugin
   deployed_files:
-  - .github/agents/conversation-analyzer.agent.md
   - .github/hooks/hookify-plus-hooks.json
   - .github/hooks/hookify-plus-hooks.json
   - .github/prompts/configure.prompt.md
@@ -103,10 +102,9 @@ dependencies:
   - .github/prompts/list.prompt.md
   - .github/skills/writing-rules
   deployed_file_hashes:
-    .github/agents/conversation-analyzer.agent.md: sha256:535ec8acb55b51bfac83a54f5f5c70746a52adb7a0b785e9be0e376c7e2eb12c
     .github/hooks/hookify-plus-hooks.json: sha256:d60651c94a42751d75db2f930faf083302acb45db9a7d8f4a5f6878f71537298
     .github/prompts/configure.prompt.md: sha256:1cb84c1055f6069f2b16ee5b8691f776640267d98b65c09fb81c7569b3197c5f
     .github/prompts/help.prompt.md: sha256:39529a6e6473c45d08efbcf7053369a17e04cd3fda0bdf6f186eb20c94135d33
     .github/prompts/hookify.prompt.md: sha256:7560e58edc6cbb899c0b171292f63654fd1a0bd77354e7f89e2457acd0241e30
     .github/prompts/list.prompt.md: sha256:6128e44611d981e911c0e956d619b02924f46407a00bbb9deff2e4f3465b9368
-  content_hash: sha256:a96844d1b64da965f302c4b3c24ff81740dfbe5ba7969b9dd96ee0bb7763c0cf
+  content_hash: sha256:f7cf4999c2d70a4d36e8a4ab47c3b36d9adac00aaecab220030cee1f2aa25e7e
