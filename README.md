@@ -26,7 +26,7 @@ apm install -g tuandinh0801/agent-package-manager
 That's it. APM fetches the package, resolves all 7 plugin dependencies, and deploys skills/rules/instructions into your agent's config directory automatically. No cloning, no compile step needed.
 
 This gives you:
-- 7 plugin dependencies (auto-installed)
+- 6 plugin dependencies (auto-installed)
 - 14 custom workflow skills
 - 15 security rules
 - 8 coding standard instructions
@@ -90,7 +90,6 @@ apm compile --target all       # → all formats
 | [caveman](https://github.com/JuliusBrussee/caveman) | Token-compressed communication (~75% savings) |
 | [superpowers](https://github.com/obra/superpowers) | TDD, debugging, brainstorming workflows |
 | [hookify-plus](https://github.com/tuandinh0801/hookify-plus) | Security rule enforcement engine |
-| [pr-review-toolkit](https://github.com/anthropics/claude-plugins-official) | Structured PR review |
 | [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
 | [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
 | [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
