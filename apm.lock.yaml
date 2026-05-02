@@ -1,0 +1,28 @@
+lockfile_version: '1'
+generated_at: '2026-05-02T03:39:47.536857+00:00'
+apm_version: 0.11.0
+dependencies:
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: ef6050c5e1848b6880ff47c32ade1a608a64f85e
+  package_type: marketplace_plugin
+  deployed_files:
+  - .github/agents/cavecrew-builder.agent.md
+  - .github/agents/cavecrew-investigator.agent.md
+  - .github/agents/cavecrew-reviewer.agent.md
+  - .github/hooks/caveman-hooks.json
+  - .github/hooks/caveman-package.json
+  - .github/skills/cavecrew
+  - .github/skills/caveman
+  - .github/skills/caveman-commit
+  - .github/skills/caveman-help
+  - .github/skills/caveman-review
+  - .github/skills/caveman-stats
+  - .github/skills/compress
+  deployed_file_hashes:
+    .github/agents/cavecrew-builder.agent.md: sha256:d7f68a923779f04a59410f09ee48adf3edc4673301b19960059278339775a32b
+    .github/agents/cavecrew-investigator.agent.md: sha256:66239d2a35456d6d17a320f863dadedd31522d6860c9a7a3d235e85720e6721f
+    .github/agents/cavecrew-reviewer.agent.md: sha256:d1e07f832a6d20817b9bbae4d7b442d3fba4b42b68e535f851c83bb2517ad2d6
+    .github/hooks/caveman-hooks.json: sha256:1f8aafa06bb744dd423e6c30f5783cec5cd3b3cca47c63b6e213161b2d767994
+    .github/hooks/caveman-package.json: sha256:8005a3491db7d92f36ac66369861589f9c47123d3a7c71e643fc2c06168cd45a
+  content_hash: sha256:162dea9f9751f5d459111558c698db087e7c90ac920b3c62c8703cc7ecb379ad

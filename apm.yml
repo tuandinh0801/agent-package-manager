@@ -1,0 +1,13 @@
+name: agent-package-manager
+version: 1.0.0
+description: AI development environment with security rules, coding standards, and workflow skills
+author: Tuan Dinh
+license: MIT
+
+dependencies:
+  apm:
+    - JuliusBrussee/caveman
+  mcp: []
+
+includes: auto
+scripts: {}
