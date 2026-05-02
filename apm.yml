@@ -15,8 +15,6 @@ dependencies:
     - obra/superpowers
     # Security rule enforcement engine
     - tuandinh0801/hookify-plus
-    # Structured PR review
-    - anthropics/claude-plugins-official/plugins/pr-review-toolkit
     # UI/UX design polish and critique
     - pbakaus/impeccable
     # Document generation (PDF, PPTX, DOCX, XLSX)
