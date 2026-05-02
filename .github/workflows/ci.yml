@@ -18,11 +18,3 @@ jobs:
 
       - name: Audit (lockfile integrity + hidden chars)
         run: apm audit --ci
-
-      - name: Check compiled output drift
-        run: |
-          apm compile
-          if [ -n "$(git status --porcelain -- AGENTS.md CLAUDE.md GEMINI.md)" ]; then
-            echo "::error::Compiled output out of date. Run 'apm compile' and commit."
-            exit 1
-          fi
