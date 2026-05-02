@@ -21,7 +21,8 @@ dependencies:
     - anthropics/skills
     # Persistent cross-session memory
     - thedotmack/claude-mem
-  mcp: []
+  mcp:
+    - name: io.github.upstash/context7
 
 devDependencies:
   apm: []
