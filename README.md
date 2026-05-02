@@ -29,7 +29,7 @@ This gives you:
 - 6 plugin dependencies (auto-installed)
 - 14 custom workflow skills
 - 15 security rules
-- 8 coding standard instructions
+- 11 coding standard instructions
 
 ### Optional Dependencies
 
@@ -87,12 +87,20 @@ apm compile --target all       # → all formats
 
 | Package | Purpose |
 |---------|---------|
-| [caveman](https://github.com/JuliusBrussee/caveman) | Token-compressed communication (~75% savings) |
+| [caveman](https://github.com/JuliusBrussee/caveman) #v1.6.0 | Token-compressed communication (~75% savings) |
 | [superpowers](https://github.com/obra/superpowers) | TDD, debugging, brainstorming workflows |
 | [hookify-plus](https://github.com/tuandinh0801/hookify-plus) | Security rule enforcement engine |
 | [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
 | [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
 | [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
+
+### Install Separately (agent-specific)
+
+Caveman for OpenCode uses a different plugin:
+
+| Agent | Install Command |
+|-------|----------------|
+| OpenCode | `opencode plugin caveman-opencode-plugin@latest --global` |
 
 ## Contributing
 
