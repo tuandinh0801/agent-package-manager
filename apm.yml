@@ -9,7 +9,20 @@ includes: auto
 
 dependencies:
   apm:
+    # Token-compressed communication
     - JuliusBrussee/caveman
+    # Development workflows (TDD, debugging, brainstorming, verification)
+    - obra/superpowers
+    # Security rule enforcement engine
+    - anthropics/claude-plugins-official/plugins/hookify
+    # Structured PR review
+    - anthropics/claude-plugins-official/plugins/pr-review-toolkit
+    # UI/UX design polish and critique
+    - pbakaus/impeccable
+    # Document generation (PDF, PPTX, DOCX, XLSX)
+    - anthropics/skills
+    # Persistent cross-session memory
+    - thedotmack/claude-mem
   mcp: []
 
 devDependencies:
