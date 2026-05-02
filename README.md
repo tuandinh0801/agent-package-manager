@@ -1,231 +1,148 @@
 # Agent Package Manager
 
-> Comprehensive AI-assisted development environment with security rules, coding standards, and workflow skills for Claude Code.
+Shared AI development environment for the team — coding standards, security rules, workflow skills, and plugins managed as a single installable package.
 
-## Quick Start
+## Setup
+
+### Prerequisites
+
+- [APM CLI](https://microsoft.github.io/apm/getting-started/quick-start/) installed
+- Claude Code, Copilot, Cursor, or any supported agent
+
+### Install
 
 ```bash
-# Install APM CLI first: https://microsoft.github.io/apm/getting-started/quick-start/
+# In your project directory
 apm install tuandinh0801/agent-package-manager
-apm compile --target claude
+apm compile
 ```
 
-After installation, your Claude Code environment gets:
+This gives you:
+- 7 plugin dependencies (auto-installed)
 - 14 custom workflow skills
-- 15 security rules (hookify)
+- 15 security rules
 - 8 coding standard instructions
-- Caveman mode (token-compressed communication)
+
+### Optional Dependencies
+
+Some skills require external tools:
+
+| Tool | Required For | Install |
+|------|-------------|---------|
+| [openspec](https://github.com/openspec-dev/openspec) | OpenSpec workflow skills | `npm install -g openspec` |
+| GitNexus MCP | GitNexus code intelligence | Configure in agent MCP settings |
+| [RTK](https://github.com/nicolo-ribaudo/rtk) | Token optimization | `cargo install rtk` |
 
 ## What's Included
 
-### Custom Skills (14)
+| Directory | Contents | Details |
+|-----------|----------|---------|
+| `skills/` | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
+| `rules/` | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
+| `instructions/` | 8 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
+| `docs/` | Workflow guides and plugin reference | [docs/](docs/) |
 
-#### OpenSpec Workflow (4 skills)
-
-A structured approach to feature development: explore → propose → implement → archive.
-
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
-| `openspec-explore` | `/opsx:explore` | Thinking partner for exploring ideas and clarifying requirements |
-| `openspec-propose` | `/opsx:propose` | Create change proposals with design docs + task breakdown |
-| `openspec-apply-change` | `/opsx:apply` | Implement tasks from a proposal using TDD and subagents |
-| `openspec-archive-change` | `/opsx:archive` | Finalize and archive completed changes |
-
-**Requires:** `openspec` CLI (`npm install -g openspec`)
-
-#### GitNexus Code Intelligence (7 skills)
-
-Knowledge-graph-powered code understanding for large codebases.
-
-| Skill | Purpose |
-|-------|---------|
-| `gitnexus-cli` | Index repos, check status, generate wikis |
-| `gitnexus-exploring` | Trace execution flows, understand architecture |
-| `gitnexus-debugging` | Debug with graph context, trace errors |
-| `gitnexus-impact-analysis` | Blast radius analysis before changes |
-| `gitnexus-pr-review` | PR review with graph-aware context |
-| `gitnexus-refactoring` | Safe rename, extract, split, move |
-| `gitnexus-guide` | GitNexus tool reference |
-
-**Requires:** GitNexus MCP server configured
-
-#### Utility Skills (3)
-
-| Skill | Purpose |
-|-------|---------|
-| `agent-browser` | Browser automation via CDP for testing and scraping |
-| `the-fool` | Critical reasoning — devil's advocate, pre-mortem, red team |
-| `plugin-structure` | Claude Code plugin scaffolding guide |
-
-### Security Rules (15 rules via hookify)
-
-**Blocking Rules** — prevent dangerous operations:
-
-| Rule | Blocks |
-|------|--------|
-| `block-code-injection` | `base64 -d \| bash`, `eval $(...)`, `source <(...)` |
-| `block-credential-dirs` | Access to `~/.ssh/`, `~/.aws/`, `~/.gnupg/`, `~/.kube/` |
-| `block-force-push` | `git push --force` |
-| `block-git-destructive` | `git reset --hard`, `git clean -f`, `git checkout -- .` |
-| `block-hardcoded-secrets` | Hardcoded API keys, passwords, tokens |
-| `block-npm-destructive` | Dangerous npm operations |
-| `block-rm-rf-home` | Recursive deletion from home directory |
-| `protect-env-files` | Reading/writing `.env` files (allows `.env.example`) |
-| `protect-env-files-bash` | Bash-specific `.env` protection |
-
-**Warning Rules** — alert on suspicious operations:
-
-| Rule | Warns On |
-|------|----------|
-| `warn-git-config-change` | `core.hooksPath`, credential config, aliases |
-| `warn-history-exposure` | Shell history file access |
-| `warn-home-dir-ops` | Home directory operations |
-| `warn-network-exfil` | Network exfiltration patterns |
-| `warn-sensitive-files` | `.pem`, `.key`, `.p12`, credentials files |
-| `warn-unicode-injection` | Zero-width chars, bidirectional overrides, Cyrillic homoglyphs |
-
-**Requires:** `hookify` plugin installed in Claude Code
-
-### Coding Standards (8 instruction files)
-
-| Instruction | Applies To | Key Rules |
-|-------------|------------|-----------|
-| `coding-style` | All files | Immutability, <800 line files, <50 line functions |
-| `security` | All files | No hardcoded secrets, parameterized queries, XSS prevention |
-| `testing` | All files | 80% coverage, TDD mandatory, unit+integration+E2E |
-| `git-workflow` | All files | Conventional commits: `feat:`, `fix:`, `refactor:`, etc. |
-| `patterns` | All files | Repository pattern, API response envelope |
-| `hooks` | All files | TodoWrite for progress tracking |
-| `python-coding-style` | `*.py` | PEP 8, type annotations, frozen dataclasses, black/ruff |
-| `typescript-coding-style` | `*.ts/tsx/js/jsx` | Strict types, no `any`, Zod validation, React prop interfaces |
-
-### Dependencies
+### Plugin Dependencies (via apm.yml)
 
 | Package | Purpose |
 |---------|---------|
-| [caveman](https://github.com/JuliusBrussee/caveman) | Token-compressed communication mode (~75% savings) |
+| [caveman](https://github.com/JuliusBrussee/caveman) | Token-compressed communication (~75% savings) |
+| [superpowers](https://github.com/obra/superpowers) | TDD, debugging, brainstorming workflows |
+| [hookify-plus](https://github.com/tuandinh0801/hookify-plus) | Security rule enforcement engine |
+| [pr-review-toolkit](https://github.com/anthropics/claude-plugins-official) | Structured PR review |
+| [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
+| [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
+| [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
 
-## Workflow Examples
+## Contributing
 
-### OpenSpec: Feature Development
-
-```bash
-# 1. Explore the problem space
-> /opsx:explore
-"I want to add user authentication to the API"
-
-# 2. Create a structured proposal
-> /opsx:propose
-# Creates: openspec/changes/add-user-auth/
-#   - proposal.md (what & why)
-#   - design.md (how)
-#   - tasks.md (implementation steps)
-
-# 3. Implement with TDD
-> /opsx:apply
-# Works through tasks one by one:
-#   - Writes tests first (RED)
-#   - Implements (GREEN)
-#   - Refactors (IMPROVE)
-#   - Uses subagents for parallel work
-
-# 4. Archive when done
-> /opsx:archive
-```
-
-### GitNexus: Understanding Code
+### Adding a Skill
 
 ```bash
-# Index your repo first
-> "Index this repo with GitNexus"
-
-# Explore how something works
-> "How does the authentication flow work?"
-# → Uses gitnexus-exploring to trace execution paths
-
-# Check impact before refactoring
-> "Is it safe to rename validateUser to verifyUser?"
-# → Uses gitnexus-impact-analysis for blast radius
-
-# Review a PR with full context
-> "Review PR #42"
-# → Uses gitnexus-pr-review with graph-aware analysis
+mkdir skills/my-skill
 ```
 
-See [docs/workflows/](docs/workflows/) for detailed guides.
+Create `skills/my-skill/SKILL.md`:
 
-## Recommended Plugins
+```markdown
+---
+name: my-skill
+description: What this skill does and when to trigger it
+---
 
-These marketplace plugins complement this package. Install via Claude Code:
+Instructions for the AI agent when this skill is invoked...
+```
 
-### Essential
+Supporting files (references, templates, scripts) go in the same directory.
 
-| Plugin | Marketplace | Why |
-|--------|-------------|-----|
-| `superpowers` | claude-plugins-official | Systematic debugging, TDD, brainstorming workflows |
-| `hookify` | claude-plugins-official | **Required** for security rules to be active |
-| `code-review` | claude-plugins-official | Structured PR review toolkit |
-| `claude-mem` | thedotmack | Persistent cross-session memory |
+### Adding a Security Rule
 
-### Productivity
+Create `rules/my-rule.md`:
 
-| Plugin | Marketplace | Why |
-|--------|-------------|-----|
-| `impeccable` | pbakaus/impeccable | UI/UX design polish and critique |
-| `document-skills` | anthropics/skills | Generate PDFs, PPTX, DOCX, spreadsheets |
-| `codex` | openai-codex | Delegate tasks to OpenAI Codex |
-| `inngest-skills` | inngest-agent-skills | Durable workflow development |
+```markdown
+---
+name: my-rule
+enabled: true
+event: bash        # bash | file
+action: block      # block | warn
+pattern: "regex pattern here"
+---
 
-### SAP Teams Only
+**Blocked/Warning: Explanation**
 
-| Plugin | Marketplace | Why |
-|--------|-------------|-----|
-| `sap-cap-capire` | sap-skills | CAP application development |
-| `sap-fiori-tools` | sap-skills | Fiori app generation and configuration |
-| `sap-ai-core` | sap-skills | AI Core model deployment |
-| `sap-cloud-sdk-ai` | sap-skills | Cloud SDK AI integration |
-| `sap-btp-developer-guide` | sap-skills | BTP application development |
-| `sap-btp-connectivity` | sap-skills | Destination/proxy configuration |
-| `sap-btp-service-manager` | sap-skills | Service instance management |
-| `saic-cli` | sap-aicore-cli | SAP AI Core CLI operations |
+Why this is dangerous and what to do instead.
+```
 
-See [docs/plugins-guide.md](docs/plugins-guide.md) for full installation instructions.
+### Adding an Instruction
 
-## Prerequisites
+Create `instructions/my-standard.instructions.md`:
 
-| Dependency | Required For | Install |
-|------------|--------------|---------|
-| [APM CLI](https://microsoft.github.io/apm/) | Package installation | `npm install -g @anthropic/apm` |
-| `hookify` plugin | Security rules | Install via Claude Code marketplace |
-| [openspec](https://github.com/openspec-dev/openspec) | OpenSpec skills | `npm install -g openspec` |
-| GitNexus MCP | GitNexus skills | Configure in `.claude/mcp.json` |
-| [RTK](https://github.com/reachingforthejack/rtk) | Token optimization (optional) | `cargo install rtk` |
+```markdown
+---
+description: One-line description of this coding standard
+applyTo: "**/*"    # or "**/*.py", "**/*.ts,**/*.tsx"
+---
 
-## Optional: RTK (Rust Token Killer)
+# Title
 
-RTK provides 60-90% token savings on dev operations by rewriting CLI output. `RTK.md` is included for users who have it installed. If you don't use RTK, the `@RTK.md` reference in CLAUDE.md can be removed.
+Your coding standards here...
+```
+
+### Validation
+
+```bash
+apm compile --validate    # Check all primitives are valid
+apm compile --dry-run     # Preview what gets generated
+```
+
+### Commit Convention
+
+```
+<type>: <description>
+
+Types: feat, fix, refactor, docs, test, chore
+```
+
+### PR Checklist
+
+- [ ] `apm compile --validate` passes
+- [ ] New skills have clear `description` in frontmatter
+- [ ] New rules explain WHY the pattern is dangerous
+- [ ] New instructions have `description` and `applyTo` fields
 
 ## Project Structure
 
 ```
 .
-├── apm.yml                  # Package manifest
-├── CLAUDE.md                # Global agent instructions
-├── simplify.md              # LLM behavioral guidelines
-├── RTK.md                   # RTK usage guide (optional)
-├── skills/                  # 14 custom skills
-├── rules/                   # 15 hookify security rules
-├── instructions/            # 8 coding standard files
-└── docs/                    # Workflow guides
+├── apm.yml              # Package manifest (dependencies, config)
+├── CLAUDE.md            # Global agent instructions
+├── simplify.md          # LLM behavioral guidelines
+├── RTK.md               # Token optimization guide (optional)
+├── skills/              # Custom skills (SKILL.md format)
+├── rules/               # Hookify security rules
+├── instructions/        # Coding standard files
+└── docs/                # Workflow guides, plugin reference
 ```
-
-## Contributing
-
-1. Add new skills to `skills/<skill-name>/SKILL.md`
-2. Add new rules to `rules/<rule-name>.md`
-3. Add new instructions to `instructions/<name>.instructions.md`
-4. Run `apm compile --validate` to verify
-5. Submit a PR
 
 ## License
 
