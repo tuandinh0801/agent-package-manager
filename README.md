@@ -1,6 +1,6 @@
 # Agent Package Manager
 
-Shared AI development environment for the team — coding standards, security rules, workflow skills, and plugins managed as a single installable package.
+Shared AI development environment — coding standards, security rules, workflow skills, and plugins managed as a single installable package.
 
 ## Setup
 
@@ -23,13 +23,28 @@ apm install tuandinh0801/agent-package-manager
 apm install -g tuandinh0801/agent-package-manager
 ```
 
-That's it. APM fetches the package, resolves all 7 plugin dependencies, and deploys skills/rules/instructions into your agent's config directory automatically. No cloning, no compile step needed.
+That's it. APM fetches the package, resolves all plugin dependencies, and deploys skills/rules/instructions into your agent's config directory automatically.
 
-This gives you:
-- 6 plugin dependencies (auto-installed)
-- 14 custom workflow skills
-- 15 security rules
-- 11 coding standard instructions
+## What's Included
+
+| Directory | Contents | Details |
+|-----------|----------|---------|
+| `skills/` | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
+| `rules/` | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
+| `instructions/` | 8 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
+| `docs/` | Workflow guides and plugin reference | [docs/](docs/) |
+
+### Plugin Dependencies (via apm.yml)
+
+| Package | Purpose |
+|---------|---------|
+| [caveman](https://github.com/JuliusBrussee/caveman) #v1.6.0 | Token-compressed communication (~75% savings) |
+| [superpowers](https://github.com/obra/superpowers) | TDD, debugging, brainstorming workflows |
+| [hookify-plus](https://github.com/tuandinh0801/hookify-plus) | Security rule enforcement engine |
+| [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
+| [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
+| [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
+
 
 ### Optional Dependencies
 
@@ -73,34 +88,6 @@ apm compile --target copilot   # → AGENTS.md + .github/
 apm compile --target opencode  # → AGENTS.md + .opencode/
 apm compile --target all       # → all formats
 ```
-
-## What's Included
-
-| Directory | Contents | Details |
-|-----------|----------|---------|
-| `skills/` | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
-| `rules/` | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
-| `instructions/` | 8 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
-| `docs/` | Workflow guides and plugin reference | [docs/](docs/) |
-
-### Plugin Dependencies (via apm.yml)
-
-| Package | Purpose |
-|---------|---------|
-| [caveman](https://github.com/JuliusBrussee/caveman) #v1.6.0 | Token-compressed communication (~75% savings) |
-| [superpowers](https://github.com/obra/superpowers) | TDD, debugging, brainstorming workflows |
-| [hookify-plus](https://github.com/tuandinh0801/hookify-plus) | Security rule enforcement engine |
-| [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
-| [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
-| [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
-
-### Install Separately (agent-specific)
-
-Caveman for OpenCode uses a different plugin:
-
-| Agent | Install Command |
-|-------|----------------|
-| OpenCode | `opencode plugin caveman-opencode-plugin@latest --global` |
 
 ## Contributing
 
