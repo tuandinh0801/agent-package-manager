@@ -41,6 +41,39 @@ Some skills require external tools:
 | GitNexus MCP | GitNexus code intelligence | Configure in agent MCP settings |
 | [RTK](https://github.com/nicolo-ribaudo/rtk) | Token optimization | `cargo install rtk` |
 
+### Useful Commands
+
+```bash
+# Install for a specific agent only
+apm install --target claude
+apm install --target copilot
+apm install --target opencode
+
+# Install only a specific skill from this package
+apm install tuandinh0801/agent-package-manager --skill openspec-propose
+
+# Update to latest version
+apm install --update
+
+# Preview what will be installed (no changes)
+apm install --dry-run
+
+# Uninstall
+apm uninstall tuandinh0801/agent-package-manager
+
+# List installed dependencies
+apm deps list
+
+# Security audit (checks for hidden unicode, lockfile drift)
+apm audit
+
+# Compile instructions into agent-native format (optional for Claude/Copilot)
+apm compile --target claude    # → CLAUDE.md + .claude/
+apm compile --target copilot   # → AGENTS.md + .github/
+apm compile --target opencode  # → AGENTS.md + .opencode/
+apm compile --target all       # → all formats
+```
+
 ## What's Included
 
 | Directory | Contents | Details |
@@ -143,12 +176,9 @@ Types: feat, fix, refactor, docs, test, chore
 ```
 .
 ├── apm.yml              # Package manifest (dependencies, config)
-├── CLAUDE.md            # Global agent instructions
-├── simplify.md          # LLM behavioral guidelines
-├── RTK.md               # Token optimization guide (optional)
 ├── skills/              # Custom skills (SKILL.md format)
 ├── rules/               # Hookify security rules
-├── instructions/        # Coding standard files
+├── instructions/        # Coding standard files (.instructions.md)
 └── docs/                # Workflow guides, plugin reference
 ```
 
