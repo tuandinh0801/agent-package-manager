@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-05-02T06:30:49.310121+00:00'
+generated_at: '2026-05-04T08:46:07.610942+00:00'
 apm_version: 0.11.0
 dependencies:
 - repo_url: JuliusBrussee/caveman
@@ -8,81 +8,88 @@ dependencies:
   resolved_ref: v1.6.0
   package_type: marketplace_plugin
   deployed_files:
-  - .github/hooks/caveman-hooks.json
-  - .github/hooks/caveman-package.json
-  - .github/skills/caveman
-  - .github/skills/caveman-commit
-  - .github/skills/caveman-help
-  - .github/skills/caveman-review
-  - .github/skills/compress
-  deployed_file_hashes:
-    .github/hooks/caveman-hooks.json: sha256:1f8aafa06bb744dd423e6c30f5783cec5cd3b3cca47c63b6e213161b2d767994
-    .github/hooks/caveman-package.json: sha256:8005a3491db7d92f36ac66369861589f9c47123d3a7c71e643fc2c06168cd45a
+  - .claude/skills/caveman
+  - .claude/skills/caveman-commit
+  - .claude/skills/caveman-help
+  - .claude/skills/caveman-review
+  - .claude/skills/compress
   content_hash: sha256:d1a27e3960950b4a3257aecc2ec41e6d04f0f039bf73b67727835e419a70c7e4
 - repo_url: anthropics/skills
   host: github.com
   resolved_commit: 5128e1865d670f5d6c9cef000e6dfc4e951fb5b9
   package_type: marketplace_plugin
   deployed_files:
-  - .github/skills/algorithmic-art
-  - .github/skills/brand-guidelines
-  - .github/skills/canvas-design
-  - .github/skills/claude-api
-  - .github/skills/doc-coauthoring
-  - .github/skills/docx
-  - .github/skills/frontend-design
-  - .github/skills/internal-comms
-  - .github/skills/mcp-builder
-  - .github/skills/pdf
-  - .github/skills/pptx
-  - .github/skills/skill-creator
-  - .github/skills/slack-gif-creator
-  - .github/skills/theme-factory
-  - .github/skills/web-artifacts-builder
-  - .github/skills/webapp-testing
-  - .github/skills/xlsx
+  - .claude/skills/algorithmic-art
+  - .claude/skills/brand-guidelines
+  - .claude/skills/canvas-design
+  - .claude/skills/claude-api
+  - .claude/skills/doc-coauthoring
+  - .claude/skills/docx
+  - .claude/skills/frontend-design
+  - .claude/skills/internal-comms
+  - .claude/skills/mcp-builder
+  - .claude/skills/pdf
+  - .claude/skills/pptx
+  - .claude/skills/skill-creator
+  - .claude/skills/slack-gif-creator
+  - .claude/skills/theme-factory
+  - .claude/skills/web-artifacts-builder
+  - .claude/skills/webapp-testing
+  - .claude/skills/xlsx
   content_hash: sha256:0298046fc0f4dc458e46a275d981178f506f1f53a32eaa351bfce7433478f578
+- repo_url: mattpocock/skills
+  host: github.com
+  resolved_commit: b843cb5ea74b1fe5e58a0fc23cddef9e66076fb8
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/caveman
+  - .claude/skills/diagnose
+  - .claude/skills/grill-me
+  - .claude/skills/grill-with-docs
+  - .claude/skills/improve-codebase-architecture
+  - .claude/skills/setup-matt-pocock-skills
+  - .claude/skills/tdd
+  - .claude/skills/to-issues
+  - .claude/skills/to-prd
+  - .claude/skills/triage
+  - .claude/skills/write-a-skill
+  - .claude/skills/zoom-out
+  content_hash: sha256:12328775f9d51e2a7376a9e97692fb67b7597ef96a39bdff41c36d0189af2344
 - repo_url: obra/superpowers
   host: github.com
   resolved_commit: e7a2d16476bf042e9add4699c9d018a90f86e4a6
   package_type: marketplace_plugin
   deployed_files:
-  - .github/agents/code-reviewer.agent.md
-  - .github/hooks/superpowers-hooks-cursor.json
-  - .github/hooks/superpowers-hooks-cursor.json
-  - .github/hooks/superpowers-hooks.json
-  - .github/hooks/superpowers-hooks.json
-  - .github/prompts/brainstorm.prompt.md
-  - .github/prompts/execute-plan.prompt.md
-  - .github/prompts/write-plan.prompt.md
-  - .github/skills/brainstorming
-  - .github/skills/dispatching-parallel-agents
-  - .github/skills/executing-plans
-  - .github/skills/finishing-a-development-branch
-  - .github/skills/receiving-code-review
-  - .github/skills/requesting-code-review
-  - .github/skills/subagent-driven-development
-  - .github/skills/systematic-debugging
-  - .github/skills/test-driven-development
-  - .github/skills/using-git-worktrees
-  - .github/skills/using-superpowers
-  - .github/skills/verification-before-completion
-  - .github/skills/writing-plans
-  - .github/skills/writing-skills
+  - .claude/agents/code-reviewer.md
+  - .claude/commands/brainstorm.md
+  - .claude/commands/execute-plan.md
+  - .claude/commands/write-plan.md
+  - .claude/skills/brainstorming
+  - .claude/skills/dispatching-parallel-agents
+  - .claude/skills/executing-plans
+  - .claude/skills/finishing-a-development-branch
+  - .claude/skills/receiving-code-review
+  - .claude/skills/requesting-code-review
+  - .claude/skills/subagent-driven-development
+  - .claude/skills/systematic-debugging
+  - .claude/skills/test-driven-development
+  - .claude/skills/using-git-worktrees
+  - .claude/skills/using-superpowers
+  - .claude/skills/verification-before-completion
+  - .claude/skills/writing-plans
+  - .claude/skills/writing-skills
   deployed_file_hashes:
-    .github/agents/code-reviewer.agent.md: sha256:b17be291994b798cf34b74c5d0afcb9da92dd466453557933161cc4e7332029d
-    .github/hooks/superpowers-hooks-cursor.json: sha256:7ea8854c2b2b1ab21ede07575c4d8a624e877f4880cdeab13b66bcf8ac5653d9
-    .github/hooks/superpowers-hooks.json: sha256:01616c57b96cc234cc984e77d2fc241dfd0e0bfacda54fe54589cd669a0d998e
-    .github/prompts/brainstorm.prompt.md: sha256:9c8219cf19f34a002766132800666f196afc2ff09befa1afa5726426ee3ee6c8
-    .github/prompts/execute-plan.prompt.md: sha256:622568a30dc85e7f57a32d581bfad17ca138c141d8fd6a184b7d9e848abd4035
-    .github/prompts/write-plan.prompt.md: sha256:1a932a02e5115234fa83a4a248ea744d64ed4688fa0f74613f7400d97dcd82cc
+    .claude/agents/code-reviewer.md: sha256:b17be291994b798cf34b74c5d0afcb9da92dd466453557933161cc4e7332029d
+    .claude/commands/brainstorm.md: sha256:a4d0fa13d2ddde166dc787cf2b6e82ad405faf3672688fe4912577c93b0735e1
+    .claude/commands/execute-plan.md: sha256:a7451e57675741c5e5a026027c4e1d736e9052b5736a9fb1276657a8bc5dccd6
+    .claude/commands/write-plan.md: sha256:a5af69db689faeb4ad7ce2252e3606255b8f6a7f16bb0b56b78864410b972235
   content_hash: sha256:f166779017700a2c801acf5da46d6b925b536666e995e0c7917995a4c28d89c7
 - repo_url: pbakaus/impeccable
   host: github.com
   resolved_commit: a312da5ec73b83b42b3a1f9e90fcdbccd4a6b539
   package_type: marketplace_plugin
   deployed_files:
-  - .github/skills/impeccable
+  - .claude/skills/impeccable
   content_hash: sha256:8be78fd636732c5b26308b6b55db595b5b6f97d9b835033d3b173dee779a09b6
 - repo_url: thedotmack/claude-mem
   host: github.com
@@ -94,19 +101,16 @@ dependencies:
   resolved_commit: 48a8b31d7ebbe7698e8c52995636a3aa427e1acf
   package_type: marketplace_plugin
   deployed_files:
-  - .github/hooks/hookify-plus-hooks.json
-  - .github/hooks/hookify-plus-hooks.json
-  - .github/prompts/configure.prompt.md
-  - .github/prompts/help.prompt.md
-  - .github/prompts/hookify.prompt.md
-  - .github/prompts/list.prompt.md
-  - .github/skills/writing-rules
+  - .claude/commands/configure.md
+  - .claude/commands/help.md
+  - .claude/commands/hookify.md
+  - .claude/commands/list.md
+  - .claude/skills/writing-rules
   deployed_file_hashes:
-    .github/hooks/hookify-plus-hooks.json: sha256:d60651c94a42751d75db2f930faf083302acb45db9a7d8f4a5f6878f71537298
-    .github/prompts/configure.prompt.md: sha256:1cb84c1055f6069f2b16ee5b8691f776640267d98b65c09fb81c7569b3197c5f
-    .github/prompts/help.prompt.md: sha256:39529a6e6473c45d08efbcf7053369a17e04cd3fda0bdf6f186eb20c94135d33
-    .github/prompts/hookify.prompt.md: sha256:7560e58edc6cbb899c0b171292f63654fd1a0bd77354e7f89e2457acd0241e30
-    .github/prompts/list.prompt.md: sha256:6128e44611d981e911c0e956d619b02924f46407a00bbb9deff2e4f3465b9368
+    .claude/commands/configure.md: sha256:b2d8249cb52e6ea583f74463fb4ddabd131dbe1dec4a64f261dfa9aca8de8731
+    .claude/commands/help.md: sha256:f93dad84b6f141d93f32b27a87a1ca5991092cce7f8cf8248deea9e468d0c08e
+    .claude/commands/hookify.md: sha256:fcaa2c7c061b082bfd67c56d463ecd196fe5afbee1554a4d40f99cd61075efe4
+    .claude/commands/list.md: sha256:db610c1b5893d74e0f96de391d7a7012ced82c39d03a86ab2e50f7afcc732703
   content_hash: sha256:f7cf4999c2d70a4d36e8a4ab47c3b36d9adac00aaecab220030cee1f2aa25e7e
 mcp_servers:
 - io.github.upstash/context7

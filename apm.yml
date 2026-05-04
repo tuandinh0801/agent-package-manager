@@ -1,39 +1,30 @@
 name: agent-package-manager
 version: 1.0.0
-description: AI development environment with security rules, coding standards, and workflow skills
+description: AI development environment with security rules, coding standards, and
+  workflow skills
 author: Tuan Dinh
 license: MIT
 type: hybrid
-
 includes: auto
-
 dependencies:
   apm:
-    # Token-compressed communication (v1.6.0 — no agents, opencode-compatible)
-    - JuliusBrussee/caveman#v1.6.0
-    # Development workflows (TDD, debugging, brainstorming, verification)
-    - obra/superpowers
-    # Security rule enforcement engine
-    - tuandinh0801/hookify-plus
-    # UI/UX design polish and critique
-    - pbakaus/impeccable
-    # Document generation (PDF, PPTX, DOCX, XLSX)
-    - anthropics/skills
-    # Persistent cross-session memory
-    - thedotmack/claude-mem
+  - JuliusBrussee/caveman#v1.6.0
+  - obra/superpowers
+  - tuandinh0801/hookify-plus
+  - pbakaus/impeccable
+  - anthropics/skills
+  - thedotmack/claude-mem
+  - mattpocock/skills
   mcp:
-    - name: io.github.upstash/context7
-
+  - name: io.github.upstash/context7
 devDependencies:
   apm: []
-
 scripts: {}
-
 compilation:
   strategy: distributed
   source_attribution: true
   exclude:
-    - "apm_modules/**"
-    - "docs/**"
+  - apm_modules/**
+  - docs/**
   placement:
     min_instructions_per_file: 1
