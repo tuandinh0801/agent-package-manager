@@ -12,8 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install APM
+      - name: Setup APM
         uses: microsoft/apm-action@v1
+        with:
+          setup-only: true
+
+      - name: Install APM packages
+        run: apm install --update
 
       - name: Pack bundle
         run: apm pack --archive -o ./release-artifacts/

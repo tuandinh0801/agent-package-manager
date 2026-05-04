@@ -10,8 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install APM packages
+      - name: Setup APM
         uses: microsoft/apm-action@v1
+        with:
+          setup-only: true
+
+      - name: Install APM packages
+        run: apm install --update
 
       - name: Validate primitives
         run: apm compile --validate
