@@ -2,12 +2,12 @@
 
 Shared AI development environment — coding standards, security rules, workflow skills, and plugins managed as a single installable package.
 
-## Setup (Claude Code)
+## Setup
 
 ### Prerequisites
 
 - [APM CLI](https://microsoft.github.io/apm/getting-started/quick-start/) installed
-- Claude Code
+- Any coding agent (Claude, Copilot, OpenCode, etc.)
 - Git (to clone this repo)
 
 ### Install
@@ -18,7 +18,7 @@ git clone https://github.com/tuandinh0801/agent-package-manager.git
 cd agent-package-manager
 
 # Install globally (available across all projects)
-apm install -g tuandinh0801/agent-package-manager
+apm install -g
 
 # Claude code ONLY - Deploy security rules
 apm run deploy-rules-global
@@ -45,12 +45,12 @@ Rules are deployed to `~/.claude/` (global) or `.claude/` (project) as `hookify.
 
 ## What's Included
 
-| Directory | Contents | Details |
-|-----------|----------|---------|
-| `skills/` | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
-| `rules/` | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
-| `instructions/` | 11 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
-| `docs/` | Workflow guides and plugin reference | [docs/](docs/) |
+| Directory            | Contents | Details |
+|----------------------|----------|---------|
+| `skills/`            | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
+| `rules/`             | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
+| `.apm/instructions/` | 11 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
+| `docs/`              | Workflow guides and plugin reference | [docs/](docs/) |
 
 ### Plugin Dependencies (via apm.yml)
 
@@ -78,12 +78,12 @@ Some skills require external tools:
 
 ```bash
 # Install for a specific agent only
-apm install --target claude
-apm install --target copilot
-apm install --target opencode
+apm install -g --target claude
+apm install -g --target copilot
+apm install -g --target opencode
 
 # Install only a specific skill from this package
-apm install tuandinh0801/agent-package-manager --skill openspec-propose
+apm install -g tuandinh0801/agent-package-manager --skill openspec-propose
 
 # Update to latest version
 apm install --update
@@ -145,7 +145,7 @@ Why this is dangerous and what to do instead.
 
 ### Adding an Instruction
 
-Create `instructions/my-standard.instructions.md`:
+Create `.apm/instructions/my-standard.instructions.md`:
 
 ```markdown
 ---
