@@ -68,11 +68,11 @@ Rules are deployed to `~/.claude/` (global) or `.claude/` (project) as `hookify.
 
 Some skills require external tools:
 
-| Tool | Required For | Install |
-|------|-------------|---------|
-| [openspec](https://github.com/openspec-dev/openspec) | OpenSpec workflow skills | `npm install -g openspec` |
+| Tool | Required For | Install                         |
+|------|-------------|---------------------------------|
+| [openspec](https://github.com/openspec-dev/openspec) | OpenSpec workflow skills | `npm install -g openspec`       |
 | GitNexus MCP | GitNexus code intelligence | Configure in agent MCP settings |
-| [RTK](https://github.com/nicolo-ribaudo/rtk) | Token optimization | `cargo install rtk` |
+| [RTK](https://github.com/rtk-ai/rtk) | Token optimization | `brew install rtk && rtk init -g`          |
 
 ### Useful Commands
 
