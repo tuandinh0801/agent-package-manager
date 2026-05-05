@@ -2,28 +2,46 @@
 
 Shared AI development environment — coding standards, security rules, workflow skills, and plugins managed as a single installable package.
 
-## Setup
+## Setup (Claude Code)
 
 ### Prerequisites
 
 - [APM CLI](https://microsoft.github.io/apm/getting-started/quick-start/) installed
-- Claude Code, Copilot, Cursor, or any supported agent
+- Claude Code
+- Git (to clone this repo)
 
 ### Install
 
-**Option A: Per-project** (adds to your project's `apm.yml`)
+```bash
+# Clone the repo
+git clone https://github.com/tuandinh0801/agent-package-manager.git
+cd agent-package-manager
+
+# Install globally (available across all projects)
+apm install -g tuandinh0801/agent-package-manager
+
+# Claude code ONLY - Deploy security rules
+apm run deploy-rules-global
+```
+
+This installs all plugin dependencies, deploys skills/instructions into `~/.claude/`, and activates 15 hookify security rules globally.
+
+### Per-project Install
 
 ```bash
 apm install tuandinh0801/agent-package-manager
+apm run deploy-rules
 ```
 
-**Option B: Global** (available across all your projects)
+### Security Rules
 
-```bash
-apm install -g tuandinh0801/agent-package-manager
-```
+15 hookify rules that block or warn on dangerous operations. Requires [hookify-plus](https://github.com/tuandinh0801/hookify-plus) (installed automatically as dependency).
 
-That's it. APM fetches the package, resolves all plugin dependencies, and deploys skills/rules/instructions into your agent's config directory automatically.
+**Blocking (9):** force push, `rm -rf ~`, git destructive ops, code injection, credential dir access, hardcoded secrets, npm destructive, `.env` file access.
+
+**Warning (6):** git config changes, shell history exposure, home dir ops, network exfiltration, sensitive file access, unicode injection.
+
+Rules are deployed to `~/.claude/` (global) or `.claude/` (project) as `hookify.*.local.md` files.
 
 ## What's Included
 
@@ -31,7 +49,7 @@ That's it. APM fetches the package, resolves all plugin dependencies, and deploy
 |-----------|----------|---------|
 | `skills/` | 14 custom skills (OpenSpec, GitNexus, utilities) | [skills/README.md](skills/) |
 | `rules/` | 15 hookify security rules (block + warn) | [rules/README.md](rules/) |
-| `instructions/` | 8 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
+| `instructions/` | 11 coding standards (common, Python, TypeScript) | [instructions/README.md](instructions/) |
 | `docs/` | Workflow guides and plugin reference | [docs/](docs/) |
 
 ### Plugin Dependencies (via apm.yml)
@@ -44,7 +62,7 @@ That's it. APM fetches the package, resolves all plugin dependencies, and deploy
 | [impeccable](https://github.com/pbakaus/impeccable) | UI/UX design polish and critique |
 | [anthropics/skills](https://github.com/anthropics/skills) | Document generation (PDF, PPTX, DOCX, XLSX) |
 | [claude-mem](https://github.com/thedotmack/claude-mem) | Persistent cross-session memory |
-
+| [mattpocock/skills](https://github.com/mattpocock/skills) | Engineering workflows (TDD, diagnosis, grilling, triage, architecture) |
 
 ### Optional Dependencies
 
@@ -70,9 +88,6 @@ apm install tuandinh0801/agent-package-manager --skill openspec-propose
 # Update to latest version
 apm install --update
 
-# Preview what will be installed (no changes)
-apm install --dry-run
-
 # Uninstall
 apm uninstall tuandinh0801/agent-package-manager
 
@@ -82,7 +97,7 @@ apm deps list
 # Security audit (checks for hidden unicode, lockfile drift)
 apm audit
 
-# Compile instructions into agent-native format (optional for Claude/Copilot)
+# Compile instructions into agent-native format
 apm compile --target claude    # → CLAUDE.md + .claude/
 apm compile --target copilot   # → AGENTS.md + .github/
 apm compile --target opencode  # → AGENTS.md + .opencode/
@@ -112,7 +127,7 @@ Supporting files (references, templates, scripts) go in the same directory.
 
 ### Adding a Security Rule
 
-Create `rules/my-rule.md`:
+Create `rules/hookify.my-rule.local.md`:
 
 ```markdown
 ---
@@ -143,13 +158,6 @@ applyTo: "**/*"    # or "**/*.py", "**/*.ts,**/*.tsx"
 Your coding standards here...
 ```
 
-### Validation
-
-```bash
-apm compile --validate    # Check all primitives are valid
-apm compile --dry-run     # Preview what gets generated
-```
-
 ### Commit Convention
 
 ```
@@ -158,21 +166,16 @@ apm compile --dry-run     # Preview what gets generated
 Types: feat, fix, refactor, docs, test, chore
 ```
 
-### PR Checklist
-
-- [ ] `apm compile --validate` passes
-- [ ] New skills have clear `description` in frontmatter
-- [ ] New rules explain WHY the pattern is dangerous
-- [ ] New instructions have `description` and `applyTo` fields
-
 ## Project Structure
 
 ```
 .
 ├── apm.yml              # Package manifest (dependencies, config)
+├── .apm/instructions/   # Instructions deployed to .claude/rules/ on install
 ├── skills/              # Custom skills (SKILL.md format)
-├── rules/               # Hookify security rules
-├── instructions/        # Coding standard files (.instructions.md)
+├── rules/               # Hookify security rules (hookify.*.local.md)
+├── instructions/        # Coding standards source (.instructions.md)
+├── scripts/             # Lifecycle scripts (deploy-rules.sh)
 └── docs/                # Workflow guides, plugin reference
 ```
 

@@ -6,7 +6,11 @@ apm_modules/
 .github/hooks/
 .github/prompts/
 .github/skills/
+.github/instructions/
 .claude/
+.agents/
+.mcp.json
 
 # IDE
 .idea/
+.vscode/

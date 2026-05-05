@@ -9,17 +9,19 @@ includes: auto
 dependencies:
   apm:
   - JuliusBrussee/caveman#v1.6.0
-  - obra/superpowers
-  - tuandinh0801/hookify-plus
-  - pbakaus/impeccable
-  - anthropics/skills
-  - thedotmack/claude-mem
-  - mattpocock/skills
+  - obra/superpowers#f2cbfbe
+  - tuandinh0801/hookify-plus#48a8b31
+  - pbakaus/impeccable#e587004
+  - anthropics/skills#d230a6d
+  - thedotmack/claude-mem#9a2818f
+  - mattpocock/skills#b843cb5
   mcp:
   - name: io.github.upstash/context7
 devDependencies:
   apm: []
-scripts: {}
+scripts:
+  deploy-rules: bash scripts/deploy-rules.sh
+  deploy-rules-global: bash scripts/deploy-rules.sh --global
 compilation:
   strategy: distributed
   source_attribution: true

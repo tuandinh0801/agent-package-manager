@@ -35,7 +35,7 @@ These alert but allow the operation to proceed.
 
 ## Rule Format
 
-Each rule is a markdown file with YAML frontmatter:
+Each rule is a `hookify.<name>.local.md` file with YAML frontmatter:
 
 ```markdown
 ---
@@ -58,7 +58,7 @@ Why this pattern is dangerous and what the user should do instead.
 
 ## Adding a New Rule
 
-1. Create `rules/my-rule.md` following the format above
+1. Create `rules/hookify.my-rule.local.md` following the format above
 2. Choose `action: block` for dangerous operations, `action: warn` for suspicious ones
 3. Write a clear explanation of WHY the pattern is dangerous
-4. Run `apm compile --validate`
+4. Run `apm run deploy-rules` to deploy locally, or `apm run deploy-rules-global` for global
