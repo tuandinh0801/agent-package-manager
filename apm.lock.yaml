@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-05-05T07:38:08.372011+00:00'
-apm_version: 0.12.1
+generated_at: '2026-05-06T14:15:47.665403+00:00'
+apm_version: 0.12.2
 dependencies:
 - repo_url: JuliusBrussee/caveman
   host: github.com
@@ -13,7 +13,20 @@ dependencies:
   - .agents/skills/caveman-help
   - .agents/skills/caveman-review
   - .agents/skills/compress
+  - .claude/skills/caveman
+  - .claude/skills/caveman-commit
+  - .claude/skills/caveman-help
+  - .claude/skills/caveman-review
+  - .claude/skills/compress
   content_hash: sha256:d1a27e3960950b4a3257aecc2ec41e6d04f0f039bf73b67727835e419a70c7e4
+- repo_url: LukasNiessen/terrashark
+  host: github.com
+  resolved_commit: 9b80593bb6ce84e02b7f52ac84b3ae77df3e7b19
+  package_type: marketplace_plugin
+  deployed_files:
+  - .agents/skills/terrashark
+  - .claude/skills/terrashark
+  content_hash: sha256:cf3f82acaeb0debbb8369f6cf78939ce228efaf3cbaf273d2c2f005a1835856d
 - repo_url: anthropics/skills
   host: github.com
   resolved_commit: d230a6dd6eb1a0dbee9fec55e2f00a96e28dff81
@@ -37,6 +50,23 @@ dependencies:
   - .agents/skills/web-artifacts-builder
   - .agents/skills/webapp-testing
   - .agents/skills/xlsx
+  - .claude/skills/algorithmic-art
+  - .claude/skills/brand-guidelines
+  - .claude/skills/canvas-design
+  - .claude/skills/claude-api
+  - .claude/skills/doc-coauthoring
+  - .claude/skills/docx
+  - .claude/skills/frontend-design
+  - .claude/skills/internal-comms
+  - .claude/skills/mcp-builder
+  - .claude/skills/pdf
+  - .claude/skills/pptx
+  - .claude/skills/skill-creator
+  - .claude/skills/slack-gif-creator
+  - .claude/skills/theme-factory
+  - .claude/skills/web-artifacts-builder
+  - .claude/skills/webapp-testing
+  - .claude/skills/xlsx
   content_hash: sha256:b0cb941a679bb18cdc7798618658a8f78ba7ba657ac73410bc1f1e551ccd27a4
 - repo_url: mattpocock/skills
   host: github.com
@@ -56,6 +86,18 @@ dependencies:
   - .agents/skills/triage
   - .agents/skills/write-a-skill
   - .agents/skills/zoom-out
+  - .claude/skills/caveman
+  - .claude/skills/diagnose
+  - .claude/skills/grill-me
+  - .claude/skills/grill-with-docs
+  - .claude/skills/improve-codebase-architecture
+  - .claude/skills/setup-matt-pocock-skills
+  - .claude/skills/tdd
+  - .claude/skills/to-issues
+  - .claude/skills/to-prd
+  - .claude/skills/triage
+  - .claude/skills/write-a-skill
+  - .claude/skills/zoom-out
   content_hash: sha256:12328775f9d51e2a7376a9e97692fb67b7597ef96a39bdff41c36d0189af2344
 - repo_url: obra/superpowers
   host: github.com
@@ -77,6 +119,20 @@ dependencies:
   - .agents/skills/verification-before-completion
   - .agents/skills/writing-plans
   - .agents/skills/writing-skills
+  - .claude/skills/brainstorming
+  - .claude/skills/dispatching-parallel-agents
+  - .claude/skills/executing-plans
+  - .claude/skills/finishing-a-development-branch
+  - .claude/skills/receiving-code-review
+  - .claude/skills/requesting-code-review
+  - .claude/skills/subagent-driven-development
+  - .claude/skills/systematic-debugging
+  - .claude/skills/test-driven-development
+  - .claude/skills/using-git-worktrees
+  - .claude/skills/using-superpowers
+  - .claude/skills/verification-before-completion
+  - .claude/skills/writing-plans
+  - .claude/skills/writing-skills
   content_hash: sha256:fb4f87bfef928a6d68f5d5aaa29e3eba011961c5f03bbf171c3c348d8d161abb
 - repo_url: pbakaus/impeccable
   host: github.com
@@ -85,6 +141,7 @@ dependencies:
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/impeccable
+  - .claude/skills/impeccable
   content_hash: sha256:3e63d422dcbae059ebe099f22c362d66ba741ff6fb158e2bc3cd332f4189280c
 - repo_url: thedotmack/claude-mem
   host: github.com
@@ -99,6 +156,7 @@ dependencies:
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/writing-rules
+  - .claude/skills/writing-rules
   content_hash: sha256:f7cf4999c2d70a4d36e8a4ab47c3b36d9adac00aaecab220030cee1f2aa25e7e
 mcp_servers:
 - io.github.upstash/context7

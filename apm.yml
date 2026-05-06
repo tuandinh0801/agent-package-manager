@@ -15,6 +15,7 @@ dependencies:
   - anthropics/skills#d230a6d
   - thedotmack/claude-mem#9a2818f
   - mattpocock/skills#b843cb5
+  - LukasNiessen/terrashark
   mcp:
   - name: io.github.upstash/context7
 devDependencies:
